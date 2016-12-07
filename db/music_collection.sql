@@ -10,5 +10,6 @@ CREATE TABLE albums (
 id  serial8 primary key,
 title varchar(255),
 num_songs INT8,
+year INT8,
 artist_id INT references artists(id)
 );
