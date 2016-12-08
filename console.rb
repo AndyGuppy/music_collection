@@ -14,4 +14,3 @@ album1 = Album.new({ 'title'=> 'Afterburner',
 album1.save()
 
 binding.pry
-nil

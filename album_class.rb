@@ -30,18 +30,43 @@ def save()
 end
 
 def self.find(album)
-    query = "SELECT artist_id FROM albums WHERE title = '#{album}';"
-    artist = DBase.run(query)[0]['name']
+    query = "SELECT * FROM albums WHERE title = '#{album}';"
+    albums = DBase.run(query)
+    return albums.map { |album| Album.new(album)}
 end
 
 def self.find_by_artist(artist)
     artist_id = Artist.find_id(artist)
-    puts artist_id
     query = "SELECT * FROM albums WHERE artist_id = #{artist_id};"
-    puts query
     albums = DBase.run(query)
     return albums.map { |album| Album.new(album)}
 end
+
+def self.delete(title)
+    query =
+    "DELETE FROM albums WHERE title = '#{title}';"
+    DBase.run(query)
+end
+
+def self.delete_by_artist(artist)
+    artist_id = Artist.find_id(artist).to_i
+    puts artist_id
+    query =
+    "DELETE FROM albums WHERE artist_id = #{artist_id};"
+    puts query
+    DBase.run(query)
+end
+
+def update()
+    query =
+    "
+    UPDATE album
+    SET(title, num_songs, year, artist_id, genre) =
+    ('#{@title}',#{@num_songs},#{@year},#{@artist_id}, '#{@genre}')
+    WHERE id = #{@id};
+    "
+    DBase.run(query)
+end  
 
 def self.all()
     query = "SELECT * FROM albums;"

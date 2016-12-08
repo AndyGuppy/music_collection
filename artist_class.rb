@@ -31,7 +31,7 @@ def self.all()
 end
 
 def self.find(artist)
-    query = "SELECT * FROM artists WHERE name = '#{artist}';"
+    query = "SELECT id FROM artists WHERE name = '#{artist}';"
     artists = DBase.run(query)
     return artists.map { |artist| Artist.new(artist)}
 end
@@ -44,9 +44,7 @@ end
 
 def self.find_id(artist)
     query = "SELECT id FROM artists WHERE name = '#{artist}';"
-    puts query
     artists_id = DBase.run(query)[0]['id']
-    puts artists_id
     return artists_id
 end
 end
