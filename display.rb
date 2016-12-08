@@ -19,7 +19,7 @@ puts "       |                               | "
 puts "       |  ENTER EXIT to QUIT           | "
 puts "       --------------------------------- "
 puts "                                "
-puts "PLEASE ENTER AN OPTION 1 - 4 :- "
+puts "PLEASE ENTER AN OPTION 1 - 6 :- "
 
 end
 
