@@ -108,6 +108,51 @@ when "6"
  puts "Press Enter to continue"
  gets.chomp
  
+when "7"
+ album_title = ask("Enter name of album to be updated")
+ albums =Array.new(Album.find(album_title.to_s))
+ if albums.empty? == true
+  puts
+  puts  "Album does not exist"
+ else
+   albums.each do
+   |album|
+   artist = Artist.find_by_id(album.artist_id)
+   puts "#{album.id} --> '#{album.title}' -- #{artist} -- released in #{album.year} and contained #{album.num_songs} tracks -- Genre = #{album.genre}"
+   puts 
+   puts "Is this the correct album ?  ( Y /N )"
+   response = gets.chomp
+   if response =="Y" || "y"
+    puts "What would you like to change (artist / title / songs / year / genre"
+    response = gets.chomp
+    case response
+    when "artist"
+
+
+    when "title"
+      puts "Please enter new title"
+       album.title = gets.chomp
+
+
+    when "songs"
+
+
+    when "year"
+
+
+    when "genre"
+
+    else
+
+    end
+    Album.update(album.id,album.title,album.num_songs, album.year, album.artist_id, album.genre)
+    else
+
+    end
+  
+
+end
+end
 
 end
 

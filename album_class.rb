@@ -57,13 +57,13 @@ def self.delete_by_artist(artist)
     DBase.run(query)
 end
 
-def update()
+def self.update(id,title, songs, year, artist_id, genre)
     query =
     "
-    UPDATE album
+    UPDATE albums
     SET(title, num_songs, year, artist_id, genre) =
-    ('#{@title}',#{@num_songs},#{@year},#{@artist_id}, '#{@genre}')
-    WHERE id = #{@id};
+    ('#{title}',#{songs},#{year},#{artist_id}, '#{genre}')
+    WHERE id = #{id};
     "
     DBase.run(query)
 end  

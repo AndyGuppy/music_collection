@@ -15,11 +15,12 @@ puts "       |  3 - SEARCH BY ARTIST         | "
 puts "       |  4 - SEARCH FOR ALBUM         | "
 puts "       |  5 - DELETE AN ALBUM          | "
 puts "       |  6 - DELETE ALBUMS BY ARTIST  | "
+puts "       |  7 - UPDATE DETAILS           | "
 puts "       |                               | "
 puts "       |  ENTER EXIT to QUIT           | "
 puts "       --------------------------------- "
 puts "                                "
-puts "PLEASE ENTER AN OPTION 1 - 6 :- "
+puts "PLEASE ENTER AN OPTION 1 - 7 :- "
 
 end
 
