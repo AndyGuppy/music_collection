@@ -14,21 +14,16 @@ end
 
 def save()
   sql =
-  "
-  INSERT INTO artists
-  (name)
-  VALUES
-  ('#{@name}')
-  RETURNING*;
-  "
+  "INSERT INTO artists (name) VALUES ('#{@name}')RETURNING*;"
   @id = DBase.run(sql)[0]['id'].to_i
 end
 
-def self.all()
+def all()
     query = "SELECT * FROM artists;"
-    artists = DBase.run(query)
-    return artists.map { |artist| Artist.new(artist)}
+    artists = DBase.run(query)[0]
+    return Artist.new(artists)
 end
+
 
 def self.find(artist)
     query = "SELECT id FROM artists WHERE name = '#{artist}';"

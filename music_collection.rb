@@ -135,17 +135,18 @@ when "7"
 
 
     when "songs"
-
+      album.num_songs = gets.chomp.to_i
 
     when "year"
-
+      album.year = gets.chomp.to_i
 
     when "genre"
-
+      album.genre = gets.chomp
     else
 
     end
-    Album.update(album.id,album.title,album.num_songs, album.year, album.artist_id, album.genre)
+    # Album.update(album.id,album.title,album.num_songs, album.year, album.artist_id, album.genre)
+    album.update()
     else
 
     end
